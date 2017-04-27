@@ -1,3 +1,8 @@
 rootProject.name = 'react_android'
 
 include ':app'
+
+// Push notification
+
+include ':reactnativenotifications'
+project(':reactnativenotifications').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-notifications/android')
