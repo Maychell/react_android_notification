@@ -121,7 +121,7 @@ export class react_android extends Component {
   onNotificationReceived(notification) {
     this.setState({
       ...this.state,
-      notificationReceived: 'notification received'
+      notificationReceived: notification.data.default
     });
     console.log("onNotificationReceived: ", notification);
   }
