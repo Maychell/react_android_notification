@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "16.0.0-alpha.6",
     "react-native": "0.43.4",
+    "react-native-clipboard": "0.0.5",
     "react-native-notifications": "^1.1.10"
   },
   "devDependencies": {

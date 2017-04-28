@@ -5,6 +5,7 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  TextInput,
   View,
   TouchableHighlight
 } from 'react-native';
@@ -57,6 +58,7 @@ export class react_android extends Component {
 
     this.state = {
       deviceToken: 'Waiting for device token...',
+      notificationReceived: 'No notifications yet...',
       elapsed: 0,
       lastNotification: undefined
     };
@@ -117,6 +119,10 @@ export class react_android extends Component {
   }
 
   onNotificationReceived(notification) {
+    this.setState({
+      ...this.state,
+      notificationReceived: 'notification received'
+    });
     console.log("onNotificationReceived: ", notification);
   }
 
@@ -124,7 +130,8 @@ export class react_android extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.titleText}>Wix React Native Notifications</Text>
-        <Text style={styles.bodyText}>{this.state.deviceToken}</Text>
+        <TextInput style={styles.bodyText} value={this.state.deviceToken} />
+        <Text style={styles.bodyText}>{this.state.notificationReceived}</Text>
         <Text style={styles.bodyText}>{this.state.initialNotification ? 'Opened from notification' : ''}</Text>
         <Text style={styles.bodyText}>Last notification: {this.state.lastNotification ? '\n'+this.state.lastNotification.body + ` (opened at ''${this.state.notificationRxTime})` : "N/A"}</Text>
         <Text style={styles.bodyText}>Time elapsed: {this.state.elapsed}</Text>
